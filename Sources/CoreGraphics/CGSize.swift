@@ -1,48 +1,45 @@
-//
+/
 //  CGSize.swift
-//  
+//  UIKit
 //
-//  Created by Javier Segura Perez on 9/4/22.
+//  Created by Chris on 19.06.17.
+//  Copyright © 2017 flowkey. All rights reserved.
 //
-
-import Foundation
-
-public struct CGSize : Equatable
-{
-    var width: CGFloat
-    var height: CGFloat
-
-    static var zero: CGSize { return CGSize ( width: 0, height: 0 ) }
-
-    init(from: Decoder) { }
+public struct CGSize {
+    public var width: CGFloat = 0
+    public var height: CGFloat = 0
     
-    /// Creates a size with dimensions specified as floating-point values.
-    init(width: Double, height: Double) {
-        self.width  = CGFloat ( width  )
-        self.height = CGFloat ( height )
-    }
-        
-    /// ///Creates a size with dimensions specified as CGFloat values.
-    init(width: CGFloat, height: CGFloat) {
-        self.width = width
-        self.height = height
-    }
-        
-    ///Creates a size with dimensions specified as integer values.
-    init(width: Int, height: Int) {
-        self.width  = CGFloat ( width  )
-        self.height = CGFloat ( height )
+    public init() {}
+    
+    public init(width: CGFloat, height: CGFloat) {
+        self.width = width; self.height = height
     }
     
-    /// Returns whether two sizes are equal.
-    public func equalTo( _ size: CGSize) -> Bool {
-        return ( self.width == size.width && self.height == size.height )
+    public init(width: Int, height: Int) {
+        self.width = CGFloat(width); self.height = CGFloat(height)
     }
     
-    
-    public static func == (lhs: CGSize, rhs: CGSize) -> Bool
-    {
-        return ( lhs.width == rhs.width && lhs.height == rhs.height )
-    }
+    public static let zero = CGSize()
+}
 
+
+extension CGSize {
+    public static func / (lhs: CGSize, rhs: CGFloat) -> CGSize {
+        return CGSize(
+            width: lhs.width / rhs,
+            height: lhs.height / rhs
+        )
+    }
+}
+
+extension CGSize: CustomStringConvertible {
+    public var description: String {
+        return "(\(width), \(height))"
+    }
+}
+
+extension CGSize: Equatable {
+    public static func == (lhs: CGSize, rhs: CGSize) -> Bool {
+        return lhs.width == rhs.width && lhs.height == rhs.height
+    }
 }

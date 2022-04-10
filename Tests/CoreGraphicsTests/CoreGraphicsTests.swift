@@ -8,4 +8,8 @@ final class CoreGraphicsTests: XCTestCase {
         // results.
         XCTAssertEqual(CoreGraphics().text, "Hello, World!")
     }
+    
+    func testCGFloat() throws {
+        let v = CGFloat( Double (0) )
+    }
 }
