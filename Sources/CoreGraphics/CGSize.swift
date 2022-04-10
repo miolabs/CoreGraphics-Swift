@@ -35,12 +35,12 @@ public struct CGSize : Equatable
     }
     
     /// Returns whether two sizes are equal.
-    func equalTo( _ size: CGSize) -> Bool {
+    public func equalTo( _ size: CGSize) -> Bool {
         return ( self.width == size.width && self.height == size.height )
     }
     
     
-    static func == (lhs: CGSize, rhs: CGSize) -> Bool
+    public static func == (lhs: CGSize, rhs: CGSize) -> Bool
     {
         return ( lhs.width == rhs.width && lhs.height == rhs.height )
     }
