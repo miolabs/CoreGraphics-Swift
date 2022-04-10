@@ -7,7 +7,8 @@
 
 import Foundation
 
-
+typealias CGFloat.NativeType = Double
+        
 @frozen
 public struct CGFloat : Equatable
 {
@@ -18,19 +19,21 @@ public struct CGFloat : Equatable
     
     ///value rounded to the closest representable Self.
 
-    public init( _ value: Float) {
-        v = Double( value )
-    }
+//    public init( _ value: Float) {
+//        v = Double( value )
+//    }
 
     ///value rounded to the closest representable Self.
     public init( _ value: Double) {
         v = value
     }
 
-//    ///Create an instance initialized to value.
-//    convenience
-//    init( _ value: CGFloat) {
-//        v = value.v
-//    }
-    
+    ///Create an instance initialized to value.
+    public init( _ value: CGFloat) {
+        v = value.v
+    }
+        
+    public init(floatLiteral value: CGFloat.NativeType) {
+        
+    }
 }
