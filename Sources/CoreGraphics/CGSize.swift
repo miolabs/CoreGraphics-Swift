@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CGSize
+public struct CGSize : Equatable
 {
     var width: CGFloat
     var height: CGFloat

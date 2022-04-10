@@ -17,11 +17,11 @@ public struct CGFloat : Equatable
     init() {}
     
     ///value rounded to the closest representable Self.
-//    convenience
-//    init( _ value: Float) {
-//        v = Double( value )
-//    }
-//
+
+    init( _ value: Float) {
+        v = Double( value )
+    }
+
 //    ///value rounded to the closest representable Self.
 //    convenience
 //    init( _ value: Double) {
