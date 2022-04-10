@@ -11,7 +11,7 @@ import Foundation
 //@frozen
 struct CGFloat
 {
-    value: Double = 0
+    var value: Double = 0
     
     ///Create an instance initialized to zero.
     init() {}
