@@ -50,7 +50,7 @@ extension CGPoint: Equatable {
 
 extension CGPoint {
     public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-        return CGPoint( lhs.x + rhs.x, lhs.y + rhs.y )
+        return CGPoint( x: lhs.x + rhs.x, y: lhs.y + rhs.y )
     }
 
 }
