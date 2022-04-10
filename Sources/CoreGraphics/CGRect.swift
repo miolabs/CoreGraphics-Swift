@@ -151,31 +151,6 @@ extension CGRect {
     }
 }
 
-extension CGRect {
-    // This doesn't exist in iOS but it's useful for debugging our rendering
-    internal func applying(_ t: CATransform3D) -> CGRect {
-        if t == CATransform3DIdentity { return self }
-
-        let topLeft = t.transformingVector(x: minX, y: minY, z: 0)
-        let topRight = t.transformingVector(x: maxX, y: minY, z: 0)
-        let bottomLeft = t.transformingVector(x: minX, y: maxY, z: 0)
-        let bottomRight = t.transformingVector(x: maxX, y: maxY, z: 0)
-
-        let newMinX = min(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
-        let newMaxX = max(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
-
-        let newMinY = min(topLeft.y, topRight.y, bottomLeft.y, bottomRight.y)
-        let newMaxY = max(topLeft.y, topRight.y, bottomLeft.y, bottomRight.y)
-
-        return CGRect(
-            x: CGFloat(newMinX),
-            y: CGFloat(newMinY),
-            width: CGFloat(newMaxX - newMinX),
-            height: CGFloat(newMaxY - newMinY)
-        )
-    }
-}
-
 extension CGRect: CustomStringConvertible {
     public var description: String {
         return "(\(origin.x), \(origin.y), \(width), \(height))"
