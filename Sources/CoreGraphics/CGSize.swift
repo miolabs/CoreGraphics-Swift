@@ -1,0 +1,48 @@
+//
+//  CGSize.swift
+//  
+//
+//  Created by Javier Segura Perez on 9/4/22.
+//
+
+import Foundation
+
+struct CGSize
+{
+    var width: CGFloat
+    var height: CGFloat
+
+    static var zero: CGSize { return CGSize ( width: 0, height: 0 ) }
+
+    init(from: Decoder) { }
+    
+    /// Creates a size with dimensions specified as floating-point values.
+    init(width: Double, height: Double) {
+        self.width  = CGFloat ( width  )
+        self.height = CGFloat ( height )
+    }
+        
+    /// ///Creates a size with dimensions specified as CGFloat values.
+    init(width: CGFloat, height: CGFloat) {
+        self.width = width
+        self.height = height
+    }
+        
+    ///Creates a size with dimensions specified as integer values.
+    init(width: Int, height: Int) {
+        self.width  = CGFloat ( width  )
+        self.height = CGFloat ( height )
+    }
+    
+    /// Returns whether two sizes are equal.
+    func equalTo( _ size: CGSize) -> Bool {
+        return ( self.width == size.width && self.height == size.height )
+    }
+    
+    
+    static func == (lhs: CGSize, rhs: CGSize) -> Bool
+    {
+        return ( lhs.width == rhs.width && lhs.height == rhs.height )
+    }
+
+}
