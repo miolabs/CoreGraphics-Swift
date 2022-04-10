@@ -9,7 +9,7 @@ import Foundation
 
 
 //@frozen
-struct CGFloat
+struct CGFloat : Equatable
 {
     var value: Double = 0
     
